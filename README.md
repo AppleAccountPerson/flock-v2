@@ -9,7 +9,7 @@ RuN13 Official Website
 This is the official website for **RuN13** — Dubstep Artist.
 
 **Status**: In Development  
-**Access**: Private
+**Access**: Public (NON-PERSONAL/COMMERCIAL USE)
 
 ---
 
