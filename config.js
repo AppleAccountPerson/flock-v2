@@ -1,15 +1,15 @@
 // ==================== CONFIG ====================
 const CONFIG = {
-    showCountdown: true,
+    showCountdown: false,
     countdownTarget: "2026-05-05T23:59:59",
     nextDropName: "Viral Pt. 3",
     nextDropDescription: "Prepare for pigeon",
 
-    bio: "RuN13 is a dubstep producer known for heavy basslines, chaotic energy, and being the chicken in the machine. Breaking the grid one drop at a time.",
+    bio: "I like chicken. I make chicken music. If it didn't sound chicken, it wasn't me.",
 
     releases: [
         { title: "Viral (Pt. 2)", type: "Single • Nov 2025", spotify: "#", apple: "#", youtube: "#" },
-        { title: "Liquid Funq", type: "Album • 2025", spotify: "#", apple: "#", youtube: "#" }
+        { title: "Liquid Funq", type: "Single • 2025", spotify: "#", apple: "#", youtube: "#" }
     ],
 
     visuals: [
