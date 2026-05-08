@@ -1,0 +1,7 @@
+All configuration is in config.js
+
+All animations, hero phrases, and functions are in index.html
+
+styles.css does not work currently
+
+herophrases.js does not work correctly
