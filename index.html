@@ -12,7 +12,202 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-<style src="styles.css"></style>
+<style>
+  :root { --maroon: #9c2a2a; --red: #ff1a1a; }
+ * { margin:0; padding:0; box-sizing:border-box; }
+ body { font-family: system-ui, sans-serif; background: #050505; color: #ddd; overflow-x: hidden; }
+
+
+
+
+
+
+ .ambient-bg, .scanline { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+ .ambient-bg {
+     background: linear-gradient(rgba(156,42,42,0.09) 1px, transparent 1px),
+                 linear-gradient(90deg, rgba(156,42,42,0.09) 1px, transparent 1px);
+     background-size: 80px 80px;
+     animation: gridMove 45s linear infinite;
+     opacity: 0.7;
+ }
+ .scanline {
+     background: linear-gradient(transparent, rgba(255,26,26,0.2), transparent);
+     background-size: 100% 300%;
+     animation: scan 9s linear infinite;
+     opacity: 0.2;
+ }
+ @keyframes gridMove { to { background-position: 80px 80px; } }
+ @keyframes scan { to { background-position: 0 300%; } }
+
+
+
+
+
+
+
+
+ .particle { position: fixed; border-radius: 50%; pointer-events: none; z-index: -1; animation: floatParticle linear infinite; }
+
+
+
+
+
+
+ #loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; transition: opacity 1.4s ease; }
+ .loader { width: 160px; height: 160px; border-radius: 50%; position: relative; box-shadow: 0 0 40px 6px rgba(0,0,0,0.6) inset; overflow: hidden; rotate: 180deg}
+ .loader:before, .loader:after { content: ""; position: absolute; width: 90%; height: 90%; border-radius: 45%; top: -40%; background: #2e2e2e; animation: wave 11s linear infinite; }
+ .loader:before { border-radius: 35%; background: rgba(156,42,42,0.45); animation-duration: 5s; }
+ @keyframes wave { to { transform: rotate(1000deg) scale(6); } }
+
+
+
+
+
+
+ .nav-btn{ opacity:"0.1"; font-size:2.5rem; cursor:pointer; transition: all 0.2s ease;}
+ .nav-btn:hover{transform: scaleX(1.2) scaleY(0.95) translateX(5px) translateY(-5px) rotate(-90deg)}
+
+
+
+
+
+
+
+
+ nav { position: fixed; top:0; left:0; right:0; z-index: 2000; padding: 1.5rem 8%; background: rgba(5,5,5,0.95); backdrop-filter: blur(16px); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(156,42,42,0.3); }
+ .logo { font-size: 2.5rem; font-weight: 900; letter-spacing: -4px; cursor: pointer; transition: all 0.2s ease;}
+.logo:hover{transform: scale(1.2) translateX(10px) translateY(10px)}
+
+
+
+
+
+
+
+ /* Prettier Nav */
+ .fullscreen-nav {
+     position: fixed; inset: 0; background: rgba(5,5,5,0.97); z-index: 3000;
+     display: none; flex-direction: column; align-items: left; justify-content: left;
+     gap: 2rem; font-size: 3.4rem; font-weight: 700;
+     opacity: 0; transform: scale(0.85) translateY(60px); transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
+ }
+ .fullscreen-nav.show { display: flex; opacity: 1; transform: scale(1) translateY(100px); }
+ .fullscreen-nav a {
+     padding: 0px 60px; border-radius: 20px; background: rgba(30,30,30,0.8);
+     backdrop-filter: blur(12px); transition: all 0.4s ease; border: 1px solid rgba(156,42,42,0.4);
+     color: white; text-decoration: none;
+ }
+ .fullscreen-nav a:hover {
+     background: rgba(156,42,42,0.5); color: white; transform: scale(1.01) translateX(50px);
+ }
+
+
+
+
+
+
+
+
+ .hero {
+     height: 100vh; display: flex; align-items: center; justify-content: center;
+     text-align: center; position: relative; overflow: hidden; opacity: 0; transition: opacity 1.2s ease;
+ }
+ .hero.visible { opacity: 1; }
+
+
+
+
+
+
+ /* Graffiti-style Logo Font */
+ .logo-text {
+     font-size: 8.8rem; font-weight: 900; letter-spacing: 10px;
+     background: linear-gradient(90deg, #ffffff, #ff4444, #ffffff);
+     -webkit-background-clip: text; -webkit-text-fill-color: opaque;
+     text-shadow: 0 0 60px rgba(255,30,30,0.9),
+                  8px 8px 0 #000,
+                  -4px -4px 0 #000;
+     font-family: 'Audiowide', 'Rubik Glitch', sans-serif;
+     transform: skew(-20deg);
+     filter: drop-shadow(4px 4px 8px #000);
+ }
+
+
+
+
+
+
+
+
+ .te-btn {
+     padding: 18px 32px; font-size: 1.1rem; font-weight: bold;
+     background: #555555; color: #ffffff; border: none; border-radius: 12px;
+     box-shadow: 6px 6px 12px rgba(0,0,0,0.5), inset 2px 2px 4px #fff, inset -4px -4px 8px #c7c3c0;
+     cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;
+ }
+ .te-btn:hover { transform: translateY(-3px) translatex(-3px) scale(1.03) rotate(-2deg); }
+
+
+
+
+
+
+      .teaser-btn {
+     padding: 18px 32px; font-size: 1.1rem; font-weight: bold;
+     background: #555555; color: #ffffff; border: none; border-radius: 12px;
+     box-shadow: 6px 6px 12px rgba(0,0,0,0.5), inset 2px 2px 4px #fff, inset -4px -4px 8px #c7c3c0;
+     cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 10px;
+ }
+ .teaser-btn:hover { transform: translateY(3px) translatex(3px) scale(1.03) rotate(4deg); }
+
+
+
+
+ .gold-btn {
+     margin-left: 300px; margin-top: 50px; padding: 20px 48px; font-size: 1.25rem; font-weight: bold;
+     background: linear-gradient(145deg, #f1c40f, #d4af37);
+     color: #111; border: none; border-radius: 50px;
+     box-shadow: 0 0 45px #f1c40f, 0 0 80px rgba(241,196,15,0.6);
+     cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;
+ }
+ .gold-btn:hover { transform: translateY(3px) translatex(-20px) scale(1.1) rotate(-4deg); }
+
+
+
+
+
+
+
+
+ section {
+     padding: 180px 10%; scroll-margin-top: 100px;
+     opacity: 0; transform: translateY(60px); transition: all 1.1s cubic-bezier(0.23,1,0.32,1);
+     position: relative; z-index: 2;
+ }
+ section.visible { opacity: 1; transform: translateY(0); }
+
+
+
+
+
+
+
+
+
+
+
+
+ .card {
+     background: rgba(17,17,17,0.85); border: 1px solid #333; border-radius: 24px;
+     padding: 2.8rem; backdrop-filter: blur(8px);
+     transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
+ }
+ .card:hover {
+     transform: translateY(-10px) rotate(1deg);
+     border-color: var(--red);
+     box-shadow: 0 40px 80px rgba(156,42,42,0.35);
+ }
+</style>
 </head>
 <body>
 
