@@ -224,7 +224,8 @@
 
 <!-- ==================== CONFIGURATION ==================== -->
 <script src="config.js"></script>
-
+<script src="herophrases.js"></script>
+ 
 
 
 
@@ -451,28 +452,13 @@ alert("Some audio plays...");
 }
 
 
-const heroPhrases = [
-"Big Chicken Boi",
-"Flock Talk",
-"Nest Fest",
-"No Omelets?",
-"Bassssssssssssssssssssssss",
-"Funny Chicken Pun",
- "Hi",
- "subtext",
- "Funqy",
- "What's a call and response?",
- "this looks like that yellow text from that game",
- "Fr?",
- "No, you're not crazy",
- "Chromatic"
-];
-
-
 
 
 window.addEventListener("load", () => {
-const element = document.getElementById("heroSubtitle");
+    const element = document.getElementById("heroSubtitle");
+    const randomPhrase = heroPhrases[Math.floor(Math.random() * heroPhrases.length)];
+    element.textContent = randomPhrase;
+});
 
 
 
