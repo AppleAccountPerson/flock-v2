@@ -1,10 +1,11 @@
-//***LAST UPDATED 05-06-2022 5:47pm PST***//
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RuN13</title>
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
@@ -12,465 +13,240 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+<!-- External CSS -->
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-
-
-
 <div class="ambient-bg"></div>
 <div class="scanline"></div>
 
-
-
-
-
-
-<!-- ==================== CONFIGURATION ==================== -->
-<script src="config.js"></script>
-<script src="herophrases.js"></script>
- 
-
-
-
 <!-- Loader -->
 <div id="loader">
-<div class="loader"></div>
-<div style="font-size:2.8rem; font-weight:900; color:var(--red);">Loading...</div>
+    <div class="loader"></div>
+    <div style="font-size:2.8rem; font-weight:900; color:var(--red);">Loading...</div>
 </div>
-
 
 <!-- Nav -->
 <nav>
-<div class="logo" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">RuN13</div>
-<div class="nav-btn" onclick="toggleNav()">☰</div>
+    <div class="logo" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">RuN13</div>
+    <div class="nav-btn" onclick="toggleNav()">☰</div>
 </nav>
-
 
 <!-- Fullscreen Nav -->
 <div id="fullNav" class="fullscreen-nav">
-<a href="#about" onclick="navigateTo('#about')">BIO</a>
-<a href="#releases" onclick="navigateTo('#releases')">RELEASES</a>
-<a href="#visuals" onclick="navigateTo('#visuals')">VISUALS</a>
-<a href="#live" onclick="navigateTo('#live')" id="nav-countdown">NEXT DROP</a>
-<a href="#merch" onclick="navigateTo('#merch')">MERCH</a>
-<a href="#contact" onclick="navigateTo('#contact')">CONNECT</a>
+    <a href="#about" onclick="navigateTo('#about')">BIO</a>
+    <a href="#releases" onclick="navigateTo('#releases')">RELEASES</a>
+    <a href="#visuals" onclick="navigateTo('#visuals')">VISUALS</a>
+    <a href="#live" onclick="navigateTo('#live')" id="nav-countdown">NEXT DROP</a>
+    <a href="#merch" onclick="navigateTo('#merch')">MERCH</a>
+    <a href="#contact" onclick="navigateTo('#contact')">CONNECT</a>
 </div>
-
 
 <!-- Hero -->
 <section class="hero" id="home">
-<div style="text-align:center; z-index:2">
- <h1 class="logo-text">RuN13</h1>
-
-
- <!-- dynamic text -->
- <p id="heroSubtitle" style="font-size:2rem; margin:30px 0 40px; color:#bbb;">
-    Flock Talk
- </p>
-
-
- <button class="teaser-btn" onclick="playTeaser()">
-    <i class="fas fa-play"></i> Lil' teaser
- </button>
-
-
-
-
- <button onclick="goToNextDrop()" id="hero-nextdrop-btn" class="gold-btn" style="display:none;">
-     <i class="fas fa-fire"></i> COUNTDOWN
- </button>
-</div>
+    <div style="text-align:center; z-index:2">
+        <h1 class="logo-text">RuN13</h1>
+        <p id="heroSubtitle" style="font-size:2rem; margin:30px 0 40px; color:#bbb;">Flock Talk</p>
+        
+        <button class="teaser-btn" onclick="playTeaser()">
+            <i class="fas fa-play"></i> Lil' teaser
+        </button>
+        
+        <button onclick="goToNextDrop()" id="hero-nextdrop-btn" class="gold-btn" style="display:none;">
+            <i class="fas fa-fire"></i> COUNTDOWN
+        </button>
+    </div>
 </section>
-
 
 <!-- About -->
 <section id="about">
-<h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Bio</h2>
-<div class="card" style="max-width:1000px; margin:0 auto; line-height:1.7;" id="bio-content"></div>
+    <h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Bio</h2>
+    <div class="card" style="max-width:1000px; margin:0 auto; line-height:1.7;" id="bio-content"></div>
 </section>
-
-
-
-
-
-
-
 
 <!-- Releases -->
 <section id="releases">
-<h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Releases</h2>
-<div id="releases-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px,1fr)); gap:3rem;"></div>
+    <h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Releases</h2>
+    <div id="releases-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px,1fr)); gap:3rem;"></div>
 </section>
-
-
-
-
-
-
-
-
-
 
 <!-- Visuals -->
 <section id="visuals">
-<h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Visual Realm</h2>
-<div id="visuals-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px,1fr)); gap:2.5rem;"></div>
+    <h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Visual Realm</h2>
+    <div id="visuals-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px,1fr)); gap:2.5rem;"></div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Next Drop -->
 <section id="live" style="display: none;">
-<h2 style="font-size:4rem; margin-bottom:3rem; text-align:center;">Next Drop</h2>
-<div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
- <h3 id="next-drop-name" style="margin-bottom:20px;"></h3>
- <p id="next-drop-desc" style="color:#aaa; margin-bottom:30px;"></p>
- <div id="countdown" style="font-size:5rem; font-weight:900; color:var(--red); letter-spacing:6px;"></div>
-</div>
+    <h2 style="font-size:4rem; margin-bottom:3rem; text-align:center;">Next Drop</h2>
+    <div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h3 id="next-drop-name" style="margin-bottom:20px;"></h3>
+        <p id="next-drop-desc" style="color:#aaa; margin-bottom:30px;"></p>
+        <div id="countdown" style="font-size:5rem; font-weight:900; color:var(--red); letter-spacing:6px;"></div>
+    </div>
 </section>
-
-
-
-
-
 
 <!-- Merch -->
 <section id="merch">
-<h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Merch</h2>
-<div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
- <h3>THE FLOCK STOCK</h3>
- <p style="margin:30px 0; font-size:1.2rem;">Limited edition gear dropping soon.</p>
- <button class="te-btn" onclick="alert('AThis button doesn't work yet lol 🐔')">Join the Waitlist</button>
-</div>
+    <h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Merch</h2>
+    <div class="card" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h3>THE FLOCK STOCK</h3>
+        <p style="margin:30px 0; font-size:1.2rem;">Limited edition gear dropping soon.</p>
+        <button class="te-btn" onclick="alert('This button doesn't work yet lol 🐔')">Join the Waitlist</button>
+    </div>
 </section>
-
-
-
-
-
-
-
 
 <!-- Contact -->
 <section id="contact">
-<h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Connect</h2>
-<div style="max-width:600px; margin:0 auto; text-align:center;">
- <p style="font-size:1.5rem; margin-bottom:40px;">Stay in the frequency</p>
- <input id="subscribeEmailInput" type="email" placeholder="your@email.com" style="padding:18px; width:70%; background:#111; border:1px solid #444; color:white; border-radius:50px; font-size:1.1rem;">
- <button class="te-btn" style="margin-left:175px; margin-top:20px;" onclick="subscribe()">Subscribe</button>
-</div>
+    <h2 style="text-align:center; font-size:4rem; margin-bottom:4rem;">Connect</h2>
+    <div style="max-width:600px; margin:0 auto; text-align:center;">
+        <p style="font-size:1.5rem; margin-bottom:40px;">Stay in the frequency</p>
+        <input id="subscribeEmailInput" type="email" placeholder="your@email.com" style="padding:18px; width:70%; background:#111; border:1px solid #444; color:white; border-radius:50px; font-size:1.1rem;">
+        <button class="te-btn" style="margin-left:175px; margin-top:20px;" onclick="subscribe()">Subscribe</button>
+    </div>
 </section>
 
-
-
-
-
+<!-- Scripts -->
+<script src="config.js"></script>
+<script src="herophrases.js"></script>
 
 <script>
-// Use CONFIG
+// ==================== MAIN SCRIPT ====================
+
 function renderReleases() {
-document.getElementById('releases-grid').innerHTML = CONFIG.releases.map(r => `
- <div class="card">
-     <h3>${r.title}</h3>
-     <p style="margin:15px 0 25px; color:#aaa;">${r.type}</p>
-     <div style="display:flex; gap:12px; flex-wrap:wrap;">
-         <button class="te-btn" onclick="window.open('${r.spotify}')"><i class="fab fa-spotify"></i> Spotify</button>
-         <button class="te-btn" onclick="window.open('${r.apple}')"><i class="fab fa-apple"></i> Music</button>
-         <button class="te-btn" onclick="window.open('${r.youtube}')"><i class="fab fa-youtube"></i> YouTube</button>
-     </div>
- </div>
-`).join('');
+    document.getElementById('releases-grid').innerHTML = CONFIG.releases.map(r => `
+        <div class="card">
+            <h3>${r.title}</h3>
+            <p style="margin:15px 0 25px; color:#aaa;">${r.type}</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <button class="te-btn" onclick="window.open('${r.spotify}')"><i class="fab fa-spotify"></i> Spotify</button>
+                <button class="te-btn" onclick="window.open('${r.apple}')"><i class="fab fa-apple"></i> Music</button>
+                <button class="te-btn" onclick="window.open('${r.youtube}')"><i class="fab fa-youtube"></i> YouTube</button>
+            </div>
+        </div>
+    `).join('');
 }
-
-
-
-
-
 
 function renderVisuals() {
-document.getElementById('visuals-grid').innerHTML = CONFIG.visuals.map(v => `
- <div class="card">
-     <h3>${v.title}</h3>
-     <p>${v.desc}</p>
- </div>
-`).join('');
+    document.getElementById('visuals-grid').innerHTML = CONFIG.visuals.map(v => `
+        <div class="card">
+            <h3>${v.title}</h3>
+            <p>${v.desc}</p>
+        </div>
+    `).join('');
 }
-
 
 function createParticle(color = '#ff1a1a') {
-const p = document.createElement('div');
-p.classList.add('particle');
-const size = Math.random() * 8 + 5;
-p.style.width = `${size}px`;
-p.style.height = `${size}px`;
-p.style.background = `radial-gradient(circle, ${color}, transparent)`;
-p.style.boxShadow = `0 0 25px ${color}`;
-p.style.left = `${Math.random() * 100}vw`;
-p.style.top = `${Math.random() * 40 + 55}vh`;
-p.style.animationDuration = `${Math.random() * 10 + 8}s`;
-document.body.appendChild(p);
-setTimeout(() => p.remove(), 28000);
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 8 + 5;
+    p.style.width = `${size}px`;
+    p.style.height = `${size}px`;
+    p.style.background = `radial-gradient(circle, ${color}, transparent)`;
+    p.style.boxShadow = `0 0 25px ${color}`;
+    p.style.left = `${Math.random() * 100}vw`;
+    p.style.top = `${Math.random() * 40 + 55}vh`;
+    p.style.animationDuration = `${Math.random() * 10 + 8}s`;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 28000);
 }
 
-
-
-
-function toggleNav() { document.getElementById('fullNav').classList.toggle('show'); }
-
-
-
-
-
+function toggleNav() { 
+    document.getElementById('fullNav').classList.toggle('show'); 
+}
 
 function navigateTo(section) {
-toggleNav();
-setTimeout(() => document.querySelector(section).scrollIntoView({ behavior: 'smooth' }), 500);
+    toggleNav();
+    setTimeout(() => document.querySelector(section).scrollIntoView({ behavior: 'smooth' }), 500);
 }
-
-
-
-
-
-
-
 
 function goToNextDrop() {
-document.getElementById('live').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('live').scrollIntoView({ behavior: 'smooth' });
 }
-
-
-
 
 function playTeaser() {
-alert("Some audio plays...");
+    alert("Some audio plays...");
 }
 
+function subscribe() {
+    const email = document.getElementById('subscribeEmailInput').value;
+    if (email.includes("@")) {
+        alert("This button doesn't work, but you would've subscribed with " + email);
+    } else {
+        alert("Please use a valid email!");
+    }
+}
 
+function initCountdown() {
+    const container = document.getElementById('live');
+    const heroBtn = document.getElementById('hero-nextdrop-btn');
 
+    if (!CONFIG.showCountdown) {
+        container.style.display = 'none';
+        document.getElementById('nav-countdown').style.display = 'none';
+        heroBtn.style.display = 'none';
+        return;
+    }
 
-window.addEventListener("load", () => {
+    container.style.display = 'block';
+    document.getElementById('nav-countdown').style.display = 'block';
+    heroBtn.style.display = 'inline-flex';
+
+    document.getElementById('next-drop-name').textContent = CONFIG.nextDropName;
+    document.getElementById('next-drop-desc').textContent = CONFIG.nextDropDescription;
+
+    const target = new Date(CONFIG.countdownTarget).getTime();
+    setInterval(() => {
+        const dist = target - Date.now();
+        if (dist < 0) return document.getElementById('countdown').innerHTML = "OUT NOW 🔥";
+        const d = Math.floor(dist / 86400000);
+        const h = Math.floor((dist % 86400000) / 3600000);
+        const m = Math.floor((dist % 3600000) / 60000);
+        const s = Math.floor((dist % 60000) / 1000);
+        document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    }, 1000);
+}
+
+// Main Load
+window.onload = () => {
+    document.getElementById('bio-content').innerHTML = CONFIG.bio;
+    renderReleases();
+    renderVisuals();
+    initCountdown();
+
+    // Random Hero Phrase
     const element = document.getElementById("heroSubtitle");
     const randomPhrase = heroPhrases[Math.floor(Math.random() * heroPhrases.length)];
     element.textContent = randomPhrase;
-});
 
-
-
-
-
-
-const randomPhrase =
-heroPhrases[Math.floor(Math.random() * heroPhrases.length)];
-
-
-
-
-
-
-
-
-
-
-element.textContent = randomPhrase;
-});
-
-
-
-
-
-
-function subscribe() {
-if (document.getElementById('subscribeEmailInput').value.includes("@gmail.com")) {
-alert("This button doesn't work, but you would've subscribed with " + document.getElementById('subscribeEmailInput').value);
-} else if (document.getElementById('subscribeEmailInput').value.includes("@outlook.com")){
-alert("This button doesn't work, but you would've subscribed with " + document.getElementById('subscribeEmailInput').value);
-}else if (document.getElementById('subscribeEmailInput').value.includes("@hotmail.com")){
-alert("This button doesn't work, but you would've subscribed with " + document.getElementById('subscribeEmailInput').value);
-}else{
-alert("Please use a valid email!")
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-function initCountdown() {
-const container = document.getElementById('live');
-const heroBtn = document.getElementById('hero-nextdrop-btn');
-
-
-
-
-
-
-
-
-if (!CONFIG.showCountdown) {
- container.style.display = 'none';
- document.getElementById('nav-countdown').style.display = 'none';
- heroBtn.style.display = 'none';
- return;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-container.style.display = 'block';
-document.getElementById('nav-countdown').style.display = 'block';
-heroBtn.style.display = 'inline-flex';
-
-
-
-
-
-
-document.getElementById('next-drop-name').textContent = CONFIG.nextDropName;
-document.getElementById('next-drop-desc').textContent = CONFIG.nextDropDescription;
-
-
-
-
-const target = new Date(CONFIG.countdownTarget).getTime();
-setInterval(() => {
- const dist = target - Date.now();
- if (dist < 0) return document.getElementById('countdown').innerHTML = "OUT NOW 🔥";
- const d = Math.floor(dist / 86400000);
- const h = Math.floor((dist % 86400000) / 3600000);
- const m = Math.floor((dist % 3600000) / 60000);
- const s = Math.floor((dist % 60000) / 1000);
- document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-}, 1000);
-}
-
-
-
-
-
-
-
-
-window.onload = () => {
-document.getElementById('bio-content').innerHTML = CONFIG.bio;
-renderReleases();
-renderVisuals();
-initCountdown();
-
-
-
-
-
-
-
-
-
-
-
-
-setTimeout(() => {
- document.getElementById('loader').style.opacity = '0';
- setTimeout(() => {
-     document.getElementById('loader').style.display = 'none';
-     document.querySelector('.hero').classList.add('visible');
- }, 800);
-}, 1600);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Golden particles around Next Drop button
-setInterval(() => {
- if (document.getElementById('hero-nextdrop-btn').style.display !== 'none') {
-     createParticle('#ffd700');
- }
-}, 140);
-
-
-
-
-
-
-
-
-
-
-
-
-setInterval(() => createParticle(), 320);
-for(let i = 0; i < 12; i++) createParticle();
-
-
-
-
-
-
-
-
-
-
-
-
-window.addEventListener('scroll', () => {
- document.querySelectorAll('section').forEach(sec => {
-     if (sec.getBoundingClientRect().top < window.innerHeight * 0.78) {
-         sec.classList.add('visible');
-     }
- });
-});
+    // Loader
+    setTimeout(() => {
+        document.getElementById('loader').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.querySelector('.hero').classList.add('visible');
+        }, 800);
+    }, 1600);
+
+    // Particles
+    setInterval(() => {
+        if (document.getElementById('hero-nextdrop-btn').style.display !== 'none') {
+            createParticle('#ffd700');
+        }
+    }, 140);
+
+    setInterval(() => createParticle(), 320);
+    for(let i = 0; i < 12; i++) createParticle();
+
+    // Scroll reveal
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('section').forEach(sec => {
+            if (sec.getBoundingClientRect().top < window.innerHeight * 0.78) {
+                sec.classList.add('visible');
+            }
+        });
+    });
 };
 </script>
 </body>
